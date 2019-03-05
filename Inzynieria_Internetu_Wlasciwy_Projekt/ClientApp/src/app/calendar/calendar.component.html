@@ -1,0 +1,10 @@
+<mat-grid-list cols="7" rowHeight="100px">
+  <mat-grid-tile *ngFor="let tile of tiles"
+                 [colspan]="tile.cols"
+                 [rowspan]="tile.rows"
+                 [style.background]="tile.color">
+    <button class="button" (click)="calendarOnClick(tile.text)"> <label class="text">{{ tile.text }}</label> </button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+test
