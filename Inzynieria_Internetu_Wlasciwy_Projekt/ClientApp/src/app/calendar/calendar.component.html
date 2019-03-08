@@ -1,16 +1,24 @@
-<div class="header">{{ currentMonth }} {{ currentYear }}</div>
 
-  <mat-grid-list cols="7" rowHeight="100px" class="border">
-    <mat-grid-tile *ngFor="let weekday of weekdays"
-      [colspan]="1"
-      [rowspan]="1"
-      [style.background]="lightblue">
-      <div class="weekday">{{ weekday }}</div>
-    </mat-grid-tile>
-    <mat-grid-tile *ngFor="let tile of tiles"
-                   [colspan]="tile.cols"
-                   [rowspan]="tile.rows"
-                   [style.background]="tile.color">
-      <button class="button" (click)="calendarOnClick(tile.text)"> <div class="text">{{ tile.text }}</div> </button>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="header"> {{ currentMonth }} {{ currentYear }} </div>
+<button (click)="monthLeft()"><--</button>
+<button (click)="monthRight()">--></button>
+
+<mat-grid-list cols="7" rowHeight="100px" class="border">
+  <mat-grid-tile *ngFor="let weekday of weekdays"
+                 [colspan]="1"
+                 [rowspan]="1"
+                 [style.background]="lightblue">
+    <div class="weekday">{{ weekday }}</div>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let emptyDay of emptyDays"
+                 [colspan]="1"
+                 [rowspan]="1"
+                 [style.background]="lightblue">
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let tile of tiles"
+                 [colspan]="tile.cols"
+                 [rowspan]="tile.rows"
+                 [style.background]="tile.color">
+    <button class="button" (click)="calendarOnClick(tile.text)"> <div class="text">{{ tile.text }}</div> </button>
+  </mat-grid-tile>
+</mat-grid-list>
