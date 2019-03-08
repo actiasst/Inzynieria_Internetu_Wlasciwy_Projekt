@@ -15,10 +15,11 @@ export interface Tile {
 })
 
 export class CalendarComponent implements OnInit {
+  public month: string;
+  public year: number;
   tiles: Tile[] = [];
 
   Constructor() {
-
   }
 
   calendarOnClick(number): void {
@@ -26,6 +27,8 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.month = "Styczeń";
+    this.year = 2019;
     var tmp;
     for (var i: number = 1; i < 32; i++) {
       tmp = { text: i.toString(), cols: 1, rows: 1, color: 'lightblue' };
