@@ -43,7 +43,14 @@ export class CalendarComponent implements OnInit {
     if (today.getFullYear() % 4 == 0 && today.getMonth() > 1)
       this.days++;
 
-    this.days = ((this.days % 7) + 1) % 7;
+    this.difference = this.currentYear - 2019;
+    for (var i: number = 2019; i < this.currentYear + 1; i++)
+      if (i % 4 == 1)
+        this.difference++;
+    if (this.currentYear % 4 == 0 && (today.getMonth() + this.current) % 12 > 1)
+      this.difference++;
+
+    this.days = ((this.days % 7) + 1 + this.difference) % 7;
 
     var tmp;
     for (var i: number = 0; i < this.days; i++) {
