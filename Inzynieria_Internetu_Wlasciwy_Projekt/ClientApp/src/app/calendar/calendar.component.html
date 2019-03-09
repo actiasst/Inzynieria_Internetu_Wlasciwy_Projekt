@@ -19,6 +19,6 @@
                  [colspan]="tile.cols"
                  [rowspan]="tile.rows"
                  [style.background]="tile.color">
-    <button class="button" (click)="calendarOnClick(tile.text)"> <div class="text">{{ tile.text }}</div> </button>
+    <button class="button" (click)="calendarOnClick(tile.text,currentMonth,currentYear)"> <div class="text">{{ tile.text }}</div> </button>
   </mat-grid-tile>
 </mat-grid-list>
