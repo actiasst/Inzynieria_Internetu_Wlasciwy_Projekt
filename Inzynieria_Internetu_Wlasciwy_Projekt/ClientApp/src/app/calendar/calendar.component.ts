@@ -58,10 +58,17 @@ export class CalendarComponent implements OnInit {
       this.emptyDays.push(tmp);
     }
 
-    for (var i: number = 1; i < this.daysInYear[today.getMonth()]+1; i++) {
-      tmp = { text: i.toString(), cols: 1, rows: 1, color: 'lightblue' };
-      this.tiles.push(tmp);
+    if (this.currentYear % 4 == 0 && today.getMonth() == 1 ){
+      for (var i: number = 1; i < 30; i++) {
+        tmp = { text: i.toString(), cols: 1, rows: 1, color: 'lightblue' };
+        this.tiles.push(tmp);
+      }
     }
+    else
+      for (var i: number = 1; i < this.daysInYear[today.getMonth()] + 1; i++) {
+        tmp = { text: i.toString(), cols: 1, rows: 1, color: 'lightblue' };
+        this.tiles.push(tmp);
+      }
   }
 
   monthLeft() {
